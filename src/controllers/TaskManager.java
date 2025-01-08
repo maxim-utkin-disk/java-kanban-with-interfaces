@@ -42,7 +42,7 @@ public interface TaskManager {
 
     int addSubtask(Subtask subtask);
 
-    void updateSubtask(Subtask newSubtask);
+    int updateSubtask(Subtask newSubtask);
 
     void deleteSubtask(int subtaskId);
 

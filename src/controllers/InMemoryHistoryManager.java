@@ -1,11 +1,8 @@
 package controllers;
 
-import model.Epic;
-import model.Subtask;
 import model.Task;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class InMemoryHistoryManager implements HistoryManager{
 
@@ -19,15 +16,19 @@ public class InMemoryHistoryManager implements HistoryManager{
 
     @Override
     public void add(Task task){
+        if (task == null) {
+            return; // пустой объект в историю просмотров не добавляем
+        }
         if (history.size() == MAX_HISTORY_ARRAY_SIZE) {
-            history.remove(0);
+            history.removeFirst();
         }
         history.add(task);
     }
 
     @Override
     public ArrayList<Task> getHistory(){
-        return history;
+        //возвращаем копию истории
+        return new ArrayList<>(history);
     }
 
 }

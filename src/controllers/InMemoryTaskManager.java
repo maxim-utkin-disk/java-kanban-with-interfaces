@@ -127,7 +127,6 @@ public class InMemoryTaskManager implements TaskManager {
     @Override
     public int addSubtask(Subtask subtask) {
         if (!epicList.containsKey(subtask.getEpicId())) {
-            System.out.println("В списке эпиков id = " + subtask.getEpicId() + "не найден. Подзадача не добавлена!");
             return -1;
         } else {
             subtask.setId(getId());
@@ -139,11 +138,9 @@ public class InMemoryTaskManager implements TaskManager {
     }
 
     @Override
-    public void updateSubtask(Subtask newSubtask) {
+    public int updateSubtask(Subtask newSubtask) {
         if (!epicList.containsKey(newSubtask.getEpicId())) {
-            System.out.println("Эпик id=" + newSubtask.getEpicId() +
-                    " не найден в списке эпиков. Обновление подзадачи не выполнено");
-            return;
+            return -1;
         }
 
         if (!subtaskList.containsKey(newSubtask.getId())) {
@@ -155,12 +152,12 @@ public class InMemoryTaskManager implements TaskManager {
         Epic e = epicList.get(newSubtask.getEpicId());
         e.actualizeStatus(getSubtaskList());
 
+        return 0;
     }
 
     @Override
     public void deleteSubtask(int subtaskId) {
         if (!subtaskList.containsKey(subtaskId)) {
-            System.out.println("Подзадачи с id = " + subtaskId + " нет в списке, удаление не выполнено");
             return;
         }
         Epic epic = getEpic(getSubtask(subtaskId).getEpicId());

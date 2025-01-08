@@ -77,6 +77,7 @@ class TaskManagerTest {
                 NEW
                 );
         final int subtaskId = taskManager.addSubtask(subtask);
+        assertTrue(subtaskId >= 0, "Подзадача не добавлена");
 
         final ArrayList<Subtask> subtasks = taskManager.getSubtaskList();
         assertNotNull(subtasks, "Подзадачи не возвращаются.");

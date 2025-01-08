@@ -47,27 +47,63 @@ public class CheckTaskManager {
 
         System.out.println("-".repeat(46)+"\n\r\n\rтрениреуемся с эпиками и подзадачами:\n\r1.создать несколько новых");
         int epic1Id = taskManager.addEpic(new Epic("epic1", "купить продуктов"));
-        int subtask11Id = taskManager.addSubtask(new Subtask("subtask1_1", "купить хлеба", epic1Id, TaskState.NEW));
-        int subtask12Id = taskManager.addSubtask(new Subtask("subtask1_2", "купить молока", epic1Id, TaskState.NEW));
-        int subtask13Id = taskManager.addSubtask(new Subtask("subtask1_3", "купить картошки", epic1Id, TaskState.NEW));
-        int subtask14Id = taskManager.addSubtask(new Subtask("subtask1_4", "купить чай", epic1Id, TaskState.NEW));
+
+        Subtask subtask11 = new Subtask("subtask1_1", "купить хлеба", epic1Id, TaskState.NEW);
+        int subtask11Id = taskManager.addSubtask(subtask11);
+        checkSubtaskOperation(subtask11Id, subtask11);
+
+        Subtask subtask12 = new Subtask("subtask1_2", "купить молока", epic1Id, TaskState.NEW);
+        int subtask12Id = taskManager.addSubtask(subtask12);
+        checkSubtaskOperation(subtask12Id, subtask12);
+
+        Subtask subtask13 = new Subtask("subtask1_3", "купить картошки", epic1Id, TaskState.NEW);
+        int subtask13Id = taskManager.addSubtask(subtask13);
+        checkSubtaskOperation(subtask13Id, subtask13);
+
+        Subtask subtask14 = new Subtask("subtask1_4", "купить чай", epic1Id, TaskState.NEW);
+        int subtask14Id = taskManager.addSubtask(subtask14);
+        checkSubtaskOperation(subtask14Id, subtask14);
 
         int epic2Id = taskManager.addEpic(new Epic("epic2", "делать уроки с детьми"));
-        int subtask21Id = taskManager.addSubtask(new Subtask("subtask2_1", "делать алгебру", epic2Id, TaskState.NEW));
-        int subtask22Id = taskManager.addSubtask(new Subtask("subtask2_2", "делать геометрию", epic2Id, TaskState.NEW));
-        int subtask23Id = taskManager.addSubtask(new Subtask("subtask2_3", "делать физику", epic2Id, TaskState.NEW));
-        int subtask24Id = taskManager.addSubtask(new Subtask("subtask2_4", "делать информатику", epic2Id, TaskState.NEW));
-        int subtask25Id = taskManager.addSubtask(new Subtask("subtask2_5", "делать английский", epic2Id, TaskState.NEW));
+
+        Subtask subtask21 = new Subtask("subtask2_1", "делать алгебру", epic2Id, TaskState.NEW);
+        int subtask21Id = taskManager.addSubtask(subtask21);
+        checkSubtaskOperation(subtask21Id, subtask21);
+
+        Subtask subtask22 = new Subtask("subtask2_2", "делать геометрию", epic2Id, TaskState.NEW);
+        int subtask22Id = taskManager.addSubtask(subtask22);
+        checkSubtaskOperation(subtask22Id, subtask22);
+
+        Subtask subtask23 = new Subtask("subtask2_3", "делать физику", epic2Id, TaskState.NEW);
+        int subtask23Id = taskManager.addSubtask(subtask23);
+        checkSubtaskOperation(subtask23Id, subtask23);
+
+        Subtask subtask24 = new Subtask("subtask2_4", "делать информатику", epic2Id, TaskState.NEW);
+        int subtask24Id = taskManager.addSubtask(subtask24);
+        checkSubtaskOperation(subtask24Id, subtask24);
+
+        Subtask subtask25 = new Subtask("subtask2_5", "делать английский", epic2Id, TaskState.NEW);
+        int subtask25Id = taskManager.addSubtask(subtask25);
+        checkSubtaskOperation(subtask25Id, subtask25);
 
         int epic3Id = taskManager.addEpic(new Epic("epic3", "поехать на дачу"));
-        int subtask31Id = taskManager.addSubtask(new Subtask("subtask3_1", "тошнить в пробке", epic3Id, TaskState.NEW));
-        int subtask32Id = taskManager.addSubtask(new Subtask("subtask3_2", "чистить снег", epic3Id, TaskState.NEW));
-        int subtask33Id = taskManager.addSubtask(new Subtask("subtask3_3", "топить печку", epic3Id, TaskState.NEW));
+
+        Subtask subtask31 = new Subtask("subtask3_1", "тошнить в пробке", epic3Id, TaskState.NEW);
+        int subtask31Id = taskManager.addSubtask(subtask31);
+        checkSubtaskOperation(subtask31Id, subtask31);
+
+        Subtask subtask32 = new Subtask("subtask3_2", "чистить снег", epic3Id, TaskState.NEW);
+        int subtask32Id = taskManager.addSubtask(subtask32);
+        checkSubtaskOperation(subtask32Id, subtask32);
+
+        Subtask subtask33 = new Subtask("subtask3_3", "топить печку", epic3Id, TaskState.NEW);
+        int subtask33Id = taskManager.addSubtask(subtask33);
+        checkSubtaskOperation(subtask33Id, subtask33);
 
         printAll();
 
         System.out.println("\n\r2. меняем статус первой подзадаче первого эпика");
-        Subtask subtask11 = taskManager.getSubtask(subtask11Id);
+        //Subtask subtask11 = taskManager.getSubtask(subtask11Id);
         subtask11.setStatus(TaskState.IN_PROGRESS);
         taskManager.updateSubtask(subtask11);
         System.out.println("2.1 смотрим что получилось");
@@ -78,15 +114,15 @@ public class CheckTaskManager {
         subtask11.setStatus(TaskState.DONE);
         taskManager.updateSubtask(subtask11);
         // --
-        Subtask subtask12 = taskManager.getSubtask(subtask12Id);
+        //Subtask subtask12 = taskManager.getSubtask(subtask12Id);
         subtask12.setStatus(TaskState.DONE);
         taskManager.updateSubtask(subtask12);
         // --
-        Subtask subtask13 = taskManager.getSubtask(subtask13Id);
+        //Subtask subtask13 = taskManager.getSubtask(subtask13Id);
         subtask13.setStatus(TaskState.DONE);
         taskManager.updateSubtask(subtask13);
         // --
-        Subtask subtask14 = taskManager.getSubtask(subtask14Id);
+        //Subtask subtask14 = taskManager.getSubtask(subtask14Id);
         subtask14.setStatus(TaskState.DONE);
         taskManager.updateSubtask(subtask14);
         // --
@@ -112,9 +148,9 @@ public class CheckTaskManager {
         taskManager.getEpic(epic1Id).printEpic(taskManager.getSubtaskList());
 
         System.out.println("\n\r2.6 стартуем первую подзадачу второго эпика");
-        Subtask subtask21 = taskManager.getSubtask(subtask21Id);
+        //Subtask subtask21 = taskManager.getSubtask(subtask21Id);
         subtask21.setStatus(TaskState.IN_PROGRESS);
-        taskManager.updateSubtask(subtask21);
+        checkSubtaskOperation(taskManager.updateSubtask(subtask21), subtask21);
         System.out.println("смотрим что получилось");
         taskManager.getEpic(epic2Id).printEpic(taskManager.getSubtaskList());
 
@@ -210,4 +246,15 @@ public class CheckTaskManager {
         System.out.println("-".repeat(10) + "<<< закончили вывод истории просмотров задач");
     }
 
+    public void checkSubtaskOperation(int resultCode, Subtask s){
+        // положительные значения resultCode - валидные id, их не анализируем
+        if (resultCode == -1) {
+            System.out.println("Добавление/обновление подзадачи subtaskId=" + s.getId() +
+                    ", name=" + s.getName() + ", description=" + s.getDescription() +
+                    " не выполнено, те не найден эпик epicId=" + s.getEpicId());
+        } else if (resultCode < -1) {
+            System.out.println("Произошла неустановленная ошибка при обработке подзадачи subtaskId=" + s.getId() +
+                    ", name=" + s.getName() + ", description=" + s.getDescription() + ", epicId=" + s.getEpicId());
+        }
+    }
 }
